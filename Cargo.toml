@@ -18,9 +18,10 @@ spin = "0.9"
 axerrno = "0.1.0"
 # kspin = "0.1.0"
 memory_addr = "0.3.1"
-page_table_entry = { version = "0.4.1", features = ["arm-el2"] }
+page_table_entry = { path = "../page_table_multiarch/page_table_entry", features = ["arm-el2"] }
 page_table_multiarch = "0.4.1"
-percpu = { version = "0.1.4", features = ["arm-el2"] }
+#percpu = { version = "0.1.4", features = ["arm-el2"] }
+percpu = { version = "0.1.4" }
 
 # System dependent modules provided by ArceOS-Hypervisor.
 #axvcpu = { git = "https://github.com/arceos-hypervisor/axvcpu.git" }
