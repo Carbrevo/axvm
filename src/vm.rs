@@ -248,11 +248,14 @@ impl<H: AxVMHal, U: AxVCpuHal> AxVM<H, U> {
             .vcpu(vcpu_id)
             .ok_or_else(|| ax_err_type!(InvalidInput, "Invalid vcpu_id"))?;
 
+        info!("run_vcpu!");
         vcpu.bind()?;
+        info!("vcpu bound!");
 
         let exit_reason = loop {
+            info!("prepare run!");
             let exit_reason = vcpu.run()?;
-            trace!("{exit_reason:#x?}");
+            trace!("vcpu exit:{exit_reason:#x?}");
             let handled = match &exit_reason {
                 AxVCpuExitReason::MmioRead {
                     addr,
